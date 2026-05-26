@@ -1,0 +1,16 @@
+{
+  "name": "poznai-bielik-starter-node",
+  "version": "1.0.0",
+  "description": "Node.js starter do warsztatu PoznAI Bielika",
+  "type": "module",
+  "scripts": {
+    "hello": "node hello-world.js",
+    "chat": "node chat-starter/index.js",
+    "pipeline": "node pipeline-starter/index.js",
+    "multi": "node multi-step-starter/index.js"
+  },
+  "dependencies": {
+    "openai": "^4.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
