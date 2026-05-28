@@ -22,7 +22,7 @@ Odpowiadaj po polsku, krótko i konkretnie.`;
 
 const apiKey = process.env.PCSS_API_KEY;
 const baseURL = process.env.PCSS_BASE_URL || 'https://llm.hpc.psnc.pl/v1';
-const model = process.env.PCSS_MODEL || 'bielik-11b-v2.3-instruct';
+const model = process.env.PCSS_MODEL || 'bielik_11b';
 
 if (!apiKey || apiKey === 'twój_klucz_tutaj') {
   console.error('Błąd: brak klucza API. Sprawdź plik .env w głównym folderze repo.');

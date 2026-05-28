@@ -38,9 +38,13 @@ cp .env.example .env
 **Python:**
 ```bash
 cd python
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python hello-world.py
 ```
+
+> Na Debianie/Ubuntu (i nowych dystrybucjach z Pythonem 3.12+) `pip install` poza venv zwróci błąd `externally-managed-environment` (PEP 668). Venv to obejście — i tak najczystsza opcja. Wymaga pakietu `python3-venv` (`sudo apt install python3-venv` jeśli brakuje).
 
 **Node:**
 ```bash
@@ -88,7 +92,13 @@ poznai-bielik-starter/
 
 ## Problemy?
 
-- Błąd `401 Unauthorized` → klucz PCSS nieprawidłowy lub nie ma go w `.env`
+- Błąd `401 Unauthorized` → dwie możliwości:
+  - `invalid api key` / `authentication` → klucz PCSS nieprawidłowy lub nie ma go w `.env`
+  - `team_model_access_denied` / `team not allowed to access model` → klucz **działa**, ale Twój team nie ma dostępu do modelu z `PCSS_MODEL`. Listę dostępnych modeli sprawdzisz tak:
+    ```bash
+    curl -sS https://llm.hpc.psnc.pl/v1/models -H "Authorization: Bearer $PCSS_API_KEY" | python3 -m json.tool
+    ```
+    Domyślna nazwa Bielika na PCSS to `bielik_11b` (z podkreślnikiem, nie `bielik-11b-v2.3-instruct`).
 - Błąd `Connection refused` / `Name or service not known` → sprawdź WiFi i `PCSS_BASE_URL` w `.env`
 - Błąd `Model not found` → zapytaj prowadzącego o aktualną nazwę modelu
 

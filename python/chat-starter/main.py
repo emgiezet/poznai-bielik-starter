@@ -10,7 +10,7 @@ Jesteś bezpośredni, konkretny i nie używasz korporacyjnego żargonu."""
 
 api_key = os.getenv("PCSS_API_KEY")
 base_url = os.getenv("PCSS_BASE_URL", "https://llm.hpc.psnc.pl/v1")
-model = os.getenv("PCSS_MODEL", "bielik-11b-v2.3-instruct")
+model = os.getenv("PCSS_MODEL", "bielik_11b")
 
 if not api_key or api_key == "twój_klucz_tutaj":
     print("Błąd: brak klucza API. Sprawdź plik .env w głównym folderze repo.")
