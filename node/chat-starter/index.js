@@ -22,6 +22,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 console.log("Rozmowa z Bielikiem. Wpisz 'q' żeby wyjść.\n");
 
 function ask() {
+  if (rl.closed) return;
   rl.question('Ty: ', async (input) => {
     const text = input.trim();
 
